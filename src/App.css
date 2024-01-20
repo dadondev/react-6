@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+body {
+  background: #3a4663;
+  display: flex;
+  align-items: center;
+  font-family: "League Spartan";
+  justify-content: center;
+}
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.gap-6 {
+  gap: 26px;
+}
+/* global styles end */
+.App {
+  max-width: 540px;
+  min-width: 530px;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  justify-content: space-between;
+}
+.theme {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+/* navbar styles end */
+.display {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  min-height: 128px;
+  padding: 40px 32px 36px 0;
+  margin-bottom: 24px;
+  text-align: right;
+  font-size: 5.6rem;
+  color: #fff;
+  border-radius: 10px;
+  background: #181f33;
+  font-weight: 700;
+  letter-spacing: -0.933px;
+}
+/* display styles end */
+.buttons {
+  border-radius: 10px;
+  background: #242d44;
+  max-width: 540px;
+  max-height: 480px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.numberBtn {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: none;
+  border-radius: 10px;
+  background: #eae3dc;
+  box-shadow: 0px -4px 0px 0px #b3a497 inset;
+  width: 100px;
+
+  padding: 13px 13px 11px 14px;
+  color: #434a59;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.667px;
+}
+.btnGray {
+  border: none;
+  border-radius: 10px;
+  background: #647198;
+  box-shadow: 0px -4px 0px 0px #414e73 inset;
+  width: 100px;
+  cursor: pointer;
+  padding: 13px 13px 11px 14px;
+  color: #fff;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.667px;
+}
+.primary {
+  flex-basis: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.467px;
+  border-radius: 10px;
+  background: #647198;
+  box-shadow: 0px -4px 0px 0px #414e73 inset;
+  padding: 13px 13px 11px 14px;
+}
+
+.btnPrimary {
+  display: flex;
+  gap: 24px;
+}
+.red {
+  border-radius: 10px;
+  background: #d03f2f;
+  box-shadow: 0px -4px 0px 0px #93261a inset;
+}
+.small {
+  font-size: 3.2rem;
+}
