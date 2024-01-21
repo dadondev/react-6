@@ -20,11 +20,17 @@ const buttonsNames = [
 ];
 function App() {
   const [clickedBtns, setCLickedBtns] = useState([]);
-  const [knowOper, setKnowOper] = useState(null);
   const btnClicked = (e) => {
-    if (typeof e === "string" && clickedBtns.at(-1)) {
+    if (typeof e === "string" && clickedBtns.length != 0) {
       const el = clickedBtns.at(-1) !== e ? e : null;
-      if (el != null && el !== "DEL") setCLickedBtns([...clickedBtns, el]);
+      if (el != null && el != "DEL") {
+        setCLickedBtns([...clickedBtns, el]);
+      } else {
+        console.log(true);
+        const arr = [...clickedBtns];
+        arr.pop();
+        setCLickedBtns(arr);
+      }
     } else {
       setCLickedBtns([...clickedBtns, e]);
     }
@@ -67,7 +73,14 @@ function App() {
           ))}
         </div>
         <div className="btnPrimary">
-          <button className="primary gray">RESET</button>
+          <button
+            className="primary gray"
+            onClick={() => {
+              setCLickedBtns([]);
+            }}
+          >
+            RESET
+          </button>
           <button className="primary red" onClick={solveProblem}>
             =
           </button>
