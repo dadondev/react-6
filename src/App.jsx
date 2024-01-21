@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-const clickedNumbers = [];
 const buttonsNames = [
   7,
   8,
@@ -17,26 +16,25 @@ const buttonsNames = [
   ".",
   0,
   "/",
-  "x",
+  "*",
 ];
 function App() {
-  const [btnValue, setValue] = useState(1);
-  const [howMany, setMany] = useState(0);
+  const [clickedBtns, setCLickedBtns] = useState([]);
+  const [knowOper, setKnowOper] = useState(null);
   const btnClicked = (e) => {
-    if (typeof e != "string") {
-      console.log(typeof e);
-      setValue(btnValue + 1);
-      clickedNumbers.push(e);
+    if (typeof e === "string" && clickedBtns.at(-1)) {
+      const el = clickedBtns.at(-1) !== e ? e : null;
+      if (el != null && el !== "DEL") setCLickedBtns([...clickedBtns, el]);
+    } else {
+      setCLickedBtns([...clickedBtns, e]);
     }
-    if (clickedNumbers.length > 0) {
-      if (e == "DEL") {
-        clickedNumbers.pop();
-        setValue(btnValue + 1);
-      } else if (e == "+") {
-        setMany(clickedNumbers.length);
-        console.log(howMany);
-      }
-    }
+  };
+
+  const solveProblem = () => {
+    let newArr = [];
+    newArr.push(eval(clickedBtns.join("")));
+    setCLickedBtns(newArr);
+    console.log(newArr);
   };
   return (
     <div className="App">
@@ -51,8 +49,8 @@ function App() {
           </div>
         </div>
       </div>
-      <div className={clickedNumbers.length > 10 ? "display small" : "display"}>
-        {clickedNumbers}
+      <div className={clickedBtns.length > 10 ? "display small" : "display"}>
+        {clickedBtns}
       </div>
       <div className="buttons">
         <div className="numberBtn">
@@ -70,7 +68,9 @@ function App() {
         </div>
         <div className="btnPrimary">
           <button className="primary gray">RESET</button>
-          <button className="primary red">=</button>
+          <button className="primary red" onClick={solveProblem}>
+            =
+          </button>
         </div>
       </div>
     </div>
